@@ -1,9 +1,12 @@
-from flask import Flask, render_template_string
+from flask import Flask, render_template_string, jsonify
 
+# Initialize the Flask application
 app = Flask(__name__)
 
+# Define the home route
 @app.route("/")
 def home():
+    # HTML content for the web UI
     html = '''
     <!DOCTYPE html>
     <html lang="en">
@@ -45,6 +48,7 @@ def home():
             </div>
         </div>
         <script>
+            // Function to send a command to the server
             function sendCommand(command) {
                 fetch('/' + command, {
                     method: 'POST',
@@ -69,8 +73,10 @@ def home():
     </body>
     </html>
     '''
+    # Render the HTML content as a string
     return render_template_string(html)
 
+# Define the route to handle joystick commands
 @app.route("/<command>", methods=['POST'])
 def handle_command(command):
     try:
@@ -83,5 +89,6 @@ def handle_command(command):
     except Exception as e:
         return jsonify(success=False, message=str(e))
 
+# Run the Flask app on host 0.0.0.0 and port 80
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
