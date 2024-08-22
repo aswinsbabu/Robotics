@@ -1,5 +1,5 @@
 # Subscribed to a topic
-#working code for Mqtt connection
+# Working code for Mqtt connection
 # HIVEmq
 import network
 from umqtt.simple import MQTTClient
