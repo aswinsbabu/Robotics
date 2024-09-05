@@ -1,4 +1,8 @@
-
+#Raspberry Pi side 
+#Rearranged joysick
+#flask server 
+#Joystick, USB serial
+# Flask server with joystick controls for sending USB serial commands to Pico from Raspberry Pi
 
 # Flask server with joystick controls for sending USB serial commands to Pico from Raspberry Pi
 
