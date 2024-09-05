@@ -1,8 +1,9 @@
+
+
 # Flask server with joystick controls for sending USB serial commands to Pico from Raspberry Pi
 
 from flask import Flask, render_template_string, request  # Import necessary modules from Flask
 import serial  # Import the serial module for USB communication
-import time  # Import time module (not used here, but often useful for delays or timing)
 
 # Attempt to set up the serial connection to Pico
 try:
@@ -33,7 +34,7 @@ HTML_TEMPLATE = """
         .button {
             padding: 20px 40px; /* Button size */
             font-size: 24px; /* Text size */
-            margin: 10px; /* Space around buttons */
+            margin: 5px; /* Space around buttons */
             cursor: pointer; /* Pointer cursor on hover */
             background-color: #4CAF50; /* Green background color */
             color: white; /* White text */
@@ -47,27 +48,34 @@ HTML_TEMPLATE = """
             justify-items: center; /* Center the buttons horizontally */
             align-items: center; /* Center the buttons vertically */
         }
+        .spacer {
+            visibility: hidden; /* Invisible spacers to maintain layout */
+        }
     </style>
 </head>
 <body>
     <h1>Joystick Control</h1>
-    <!-- Form containing the joystick control buttons arranged in a grid -->
+    <!-- Form containing the joystick control buttons arranged in a cross pattern -->
     <form method="POST">
         <div class="button-container">
-            <!-- Forward button placed above the Stop button -->
+            <!-- Spacer to align Forward button in the center -->
+            <div class="spacer"></div>
+            <!-- Forward button placed directly above the Stop button -->
             <button class="button" name="command" value="F">Forward</button>
-            <div></div> <!-- Empty placeholder for alignment -->
-            <div></div> <!-- Empty placeholder for alignment -->
+            <div class="spacer"></div> <!-- Spacer for alignment -->
+
             <!-- Left button placed to the left of the Stop button -->
             <button class="button" name="command" value="L">Left</button>
             <!-- Stop button in the center -->
             <button class="button" name="command" value="S">Stop</button>
             <!-- Right button placed to the right of the Stop button -->
             <button class="button" name="command" value="R">Right</button>
-            <div></div> <!-- Empty placeholder for alignment -->
-            <div></div> <!-- Empty placeholder for alignment -->
-            <!-- Backward button placed below the Stop button -->
+
+            <!-- Spacer to align Backward button in the center -->
+            <div class="spacer"></div>
+            <!-- Backward button placed directly below the Stop button -->
             <button class="button" name="command" value="B">Backward</button>
+            <div class="spacer"></div> <!-- Spacer for alignment -->
         </div>
     </form>
 </body>
