@@ -1,0 +1,7 @@
+server {
+listen 80;
+server_name 34.72.177.93;
+location / {
+proxy_pass http://10.128.0.2:5000;
+}
+}
