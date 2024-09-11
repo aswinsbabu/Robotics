@@ -1,27 +1,20 @@
-import serial
-import time 
+import select
+import sys
+import time
 
-# Adjust the port as needed; make sure to check the correct port for your setup
-s = serial.Serial(port="/dev/ttyACM0", baudrate=115200, parity=serial.PARITY_NONE, stopbits=serial.STOPBITS_ONE, timeout=1)
-message='Backward\n'
+# Set up the poll object for detecting incoming data
+poll_obj = select.poll()
+poll_obj.register(sys.stdin, select.POLLIN)  # Register stdin for polling
 
-def send_msg(data):
-    s.flush()  # Flush the input and output buffers
-    
-    # Send a test command
-    #s.write(b"Forward\n")  # Ensure correct newline termination for compatibility
-    s.write(data.encode('utf-8'))
-    print("Send data to XRP:", data)
-    # Read response from Pico, adjusting the read length as needed
-    #ret_mes = s.read_until(b'\n').strip()  
-    return None
-    
-    
-def main():    
-    while True:
-        response = send_msg(message)
-        time.sleep(0.5)
-        #print(response.decode())  # Decode and print the response
-
-if __name__ == "__main__":
-    main()
+# Loop indefinitely to check for incoming data
+while True:
+    poll_results = poll_obj.poll(1000)  # Wait for data for 1000 milliseconds (1 second)
+    if poll_results:
+        # Read the data from stdin and strip whitespace/newline
+        data = sys.stdin.readline().strip()
+        # Print or process received data; adjust stdout use if issues arise
+        print(f"\nReceived data: {data}")
+    else:
+        # No data received; continue loop or handle other tasks
+        print("No data received, waiting...")
+        time.sleep(1)  # Delay to reduce unnecessary looping
