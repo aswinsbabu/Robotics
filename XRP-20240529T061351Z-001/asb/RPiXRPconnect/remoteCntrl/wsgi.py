@@ -84,9 +84,11 @@ def home():
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
-                       alert('Command sent: ' + command);
+                       //alert('Command sent: ' + command); //Uncomment to enable msg prompt
+                       cosole.log('Command sent: ' + command); //Addition
                     } else {
-                        alert('Error sending command: ' + data.message);
+                        //alert('Error sending command: ' + data.message);
+                        console.error('Error sending command: ' + data.message);
                     }
                 })
                 .catch(error => {
