@@ -1,5 +1,5 @@
 # wsgi.py path: my_proj_env/bin/wsgi.py
-#joystick instaed of buttons
+#joystick instead of buttons
 from flask import Flask, render_template_string, jsonify
 import paho.mqtt.client as mqtt
 
