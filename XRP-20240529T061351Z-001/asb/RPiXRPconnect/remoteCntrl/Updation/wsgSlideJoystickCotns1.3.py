@@ -1,4 +1,6 @@
-# wsgi.py path: my_proj_env/bin/wsgi.py
+#File: wsgSlideJoystickCotns1.3.py
+#Sends continous commands as long as joystick pressed
+# wsgi.py path: my_proj_env/bin/wsgi.py==>Git Robotics/XRP-20240529T061351Z-001/asb/RPiXRPconnect/remoteCntrl/Updation/wsgSlideJoystickCotns1.3.py
 from flask import Flask, render_template_string, jsonify
 import paho.mqtt.client as mqtt
 
