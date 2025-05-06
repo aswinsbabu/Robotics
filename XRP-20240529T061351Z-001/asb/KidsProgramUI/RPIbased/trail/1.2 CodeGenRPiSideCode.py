@@ -112,6 +112,12 @@ HTML = '''
     <button id="program-btn" onclick="sendProgram()">🤖 PROGRAM ROBOT!</button>
     <button id="clear-btn" onclick="clearProgram()">🧹 CLEAR</button>
 
+    <!-- Added section for displaying executed lines -->
+    <div id="executed-lines" style="background: #f9fbe7; padding: 20px; border-radius: 15px; margin-top: 20px;">
+        <h3>Executed Lines of Code:</h3>
+        <pre id="executed-lines-content"></pre>
+    </div>
+    
     <script>
         let commandList = [];
 
