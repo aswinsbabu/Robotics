@@ -1,5 +1,8 @@
 #Raspberry Pi Side code
-
+# Modified for code generation
+'''Update the /execute endpoint to receive the executed lines of code from the XRP robot and store them.
+Modify the HTML/JS to display the executed lines.
+'''
 from flask import Flask, request, jsonify
 import serial
 import time
@@ -147,9 +150,16 @@ HTML = '''
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(commandList)
             })
-            .then(response => alert('Program sent to robot! 🤖'))
-            .catch(err => alert('Error sending program 😢'));
-        }
+            .then(response => fetch('/executed_lines'))  // Fetch executed lines after sending
+            .then(response => response.json())
+            .then(data => {
+                const executedLinesContent = document.getElementById('executed-lines-content');
+                executedLinesContent.textContent = data.join('\n');  // Display executed lines
+            })
+    .catch(err => alert('Error sending program or fetching executed lines 😢'));
+}
+
+      
 
         function clearProgram() {
             dropZone.innerHTML = '🎯 Drop commands here to build your program!';
@@ -160,7 +170,16 @@ HTML = '''
 </html>
 
 '''
-
+#Get commands back from XRP
+@app.route('/executed_lines', methods=['POST'])
+def get_executed_lines():
+    """Receive and store executed lines of code from XRP robot"""
+    try:
+        executed_lines = request.get_json()  # Get executed lines from request
+        return jsonify(success=True)
+    except Exception as e:
+        return jsonify(error=str(e)), 500
+        
 @app.route('/')
 def index():
     """Serve the main interface"""
