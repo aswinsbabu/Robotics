@@ -140,20 +140,20 @@ HTML = '''
             e.target.style.backgroundColor = '#bbdefb';
         });
 
-        dropZone.addEventListener('drop', e => {
-            e.preventDefault();
-            const command = e.dataTransfer.getData('text/plain');
+        dropZone.addEventListener('drop', e => { // line sets up an event listener for the drop event
+            e.preventDefault(); //event handler called
+            const command = e.dataTransfer.getData('text/plain'); //retrive command eg 'forward'
             addCommandToSequence(command);
             e.target.style.backgroundColor = '#e3f2fd';
         });
 
         function addCommandToSequence(command) {
-            const tile = document.createElement('div');
+            const tile = document.createElement('div'); //Create new <div> element in memory.
             tile.className = 'command-tile sequence-tile';
             tile.textContent = command.toUpperCase();
             tile.dataset.command = command;
             dropZone.appendChild(tile);
-            commandList.push(command);
+            commandList.push(command); //Add command to commandList array
         }
 
         function sendProgram() {
