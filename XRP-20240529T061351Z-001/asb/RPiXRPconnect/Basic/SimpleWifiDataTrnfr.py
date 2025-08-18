@@ -1,4 +1,5 @@
 #Simple Wifi Data transfer(helloworld)
+#XRP side code
 from XRPLib.defaults import *
 
 import network
