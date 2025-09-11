@@ -1,0 +1,10 @@
+Scenario 2	XRP + Ultrasonic Sensor
+https://docs.google.com/spreadsheets/d/17eoDQHVtmD_v2sqqNhb8p6yXQXe0TbMEPmia6HzjFqk/edit?gid=1655658999#gid=1655658999
+
+ChatGPT	Can you write a program to interface xrp robot with RCWL-1601 ultrasonic sensor	100%		Wiring Details generated.  Identified that XRP runs on Micro python and generated code accordingly
+Claud	Same as above	0%		Wrong Libraries imported
+Perplexity Pro	Same as above	95		Minor issue with delay library; Used sleep() instead of time.sleep().   Initially generated code based on I2C 
+Grok	Same as above	100	Asked to generate code based on Micro python	Initially used WPI library instead of Micro python libraries
+Deep Seek	Same as above	0%	Asked to generate code based on Micro python	Imported wrong libraries
+				
+				
