@@ -1,4 +1,5 @@
-#Broadcast MAC
+#Broadcast MAC ID to the Network 
+#1.1 RPi code will capture the IP for the MAC.
 from XRPLib.defaults import *
 
 import socket
