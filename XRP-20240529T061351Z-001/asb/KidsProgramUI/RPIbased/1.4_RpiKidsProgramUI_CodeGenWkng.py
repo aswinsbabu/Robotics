@@ -1,4 +1,6 @@
-#Raspberry Pi Side code: Adjacent Zones
+#Raspberry Pi Side code: 
+#corrected generated code; removed if L135 TO L163
+#Adjacent Zones
 
 from flask import Flask, request, jsonify
 import serial
@@ -100,66 +102,66 @@ HTML = '''
 </head>
 <body>
     <div class="header">
-        <h1>🧑💻 Student's Programming</h1>
+        <h1>ðŸ§‘ðŸ’» Student's Programming</h1>
         <img src="https://cdn-icons-png.flaticon.com/512/2593/2593308.png" class="robot-img" alt="Robot">
         <h2>Drag-and-Drop Commands</h2>
     </div>
 
     <div class="palette">
-        <div class="command-tile" draggable="true" data-command="forward">⬆️ FORWARD</div>
-        <div class="command-tile" draggable="true" data-command="backward">⬇️ BACKWARD</div>
-        <div class="command-tile" draggable="true" data-command="left">⬅️ LEFT</div>
-        <div class="command-tile" draggable="true" data-command="right">➡️ RIGHT</div>
-        <div class="command-tile" draggable="true" data-command="stop">⏹ STOP</div>
+        <div class="command-tile" draggable="true" data-command="forward">â¬†ï¸ FORWARD</div>
+        <div class="command-tile" draggable="true" data-command="backward">â¬‡ï¸ BACKWARD</div>
+        <div class="command-tile" draggable="true" data-command="left">â¬…ï¸ LEFT</div>
+        <div class="command-tile" draggable="true" data-command="right">âž¡ï¸ RIGHT</div>
+        <div class="command-tile" draggable="true" data-command="stop">â¹ STOP</div>
     </div>
 
     <div class="zones-container">
         <div class="drop-zone" id="dropZone">
-            🎯 Drop commands here to build your program!
+            ðŸŽ¯ Drop commands here to build your program!
         </div>
 
         <div class="code-generator" id="codeZone">
-            🎯 See the code corresponding to your block program!
+            ðŸŽ¯ See the code corresponding to your block program!
         </div>
     </div>
 
-    <button id="program-btn" onclick="sendProgram()">🤖 PROGRAM ROBOT!</button>
-    <button id="clear-btn" onclick="clearProgram()">🧹 CLEAR</button>
+    <button id="program-btn" onclick="sendProgram()">ðŸ¤– PROGRAM ROBOT!</button>
+    <button id="clear-btn" onclick="clearProgram()">ðŸ§¹ CLEAR</button>
 
     <script>
         // Code to be copied
         const codeSnippets = {
             forward: `
-        if command == 'forward':
-            drivetrain.set_effort(0.8, 0.8)
+        #corresponding code for 'forward'
+            drivetrain.set_effort(0.8, 0.8)   #Set effort for left and right motors
             time.sleep(1)
             drivetrain.stop()
         `,
 
             backward: `
-        elif command == 'backward':
-            drivetrain.set_effort(-0.8, -0.8)
+        #corresponding code for 'backward'
+            drivetrain.set_effort(-0.8, -0.8) #Set effort to negative for going backward
             time.sleep(1)
             drivetrain.stop()
         `,
 
             left: `
-        elif command == 'left':
-            drivetrain.set_effort(-0.8, 0.8)
+        #corresponding code for 'left'
+            drivetrain.set_effort(-0.8, 0.8)  #Left wheel backward and right forward for left turn
             time.sleep(1)
             drivetrain.stop()
         `,
 
             right: `
-        elif command == 'right':
-            drivetrain.set_effort(0.8, -0.8)
+        #corresponding code for 'right'
+            drivetrain.set_effort(0.8, -0.8)  #Right wheel backward and left forward for right turn
             time.sleep(1)
             drivetrain.stop()
         `,
 
             stop: `
-        elif command == 'stop':
-            drivetrain.set_effort(0, 0)
+        #corresponding code for 'stop'
+            drivetrain.set_effort(0, 0)       #Set effort on both wheel to zero to stop
             time.sleep(1)
             drivetrain.stop()
         `
@@ -195,11 +197,11 @@ HTML = '''
             commandList.push(command);
             
             
-            // Display corresponding Python code in the code generator zone
-            const codeZone = document.getElementById('codeZone');
-            const codeLine = document.createElement('pre'); //preparing a container to hold the Python code snippet
-            codeLine.textContent = codeSnippets[command] || '# Unknown command'; //sets the text inside the <pre> element.
-            codeZone.appendChild(codeLine); //adds the new <pre> element (with the Python code inside it) to the codeZone area
+        Â Â Â  // Display corresponding Python code in the code generator zone
+        Â Â Â  const codeZone = document.getElementById('codeZone');
+        Â Â Â  const codeLine = document.createElement('pre'); //preparing a container to hold the Python code snippet
+        Â Â Â  codeLine.textContent = codeSnippets[command] || '# Unknown command'; //sets the text inside the <pre> element.
+        Â Â Â  codeZone.appendChild(codeLine); //adds the new <pre> element (with the Python code inside it) to the codeZone area
 
         }
 
@@ -209,12 +211,12 @@ HTML = '''
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(commandList)
             })
-            .then(response => alert('Program sent to robot! 🤖'))
-            .catch(err => alert('Error sending program 😢'));
+            .then(response => alert('Program sent to robot! ðŸ¤–'))
+            .catch(err => alert('Error sending program ðŸ˜¢'));
         }
 
         function clearProgram() {
-            dropZone.innerHTML = '🎯 Drop commands here to build your program!';
+            dropZone.innerHTML = 'ðŸŽ¯ Drop commands here to build your program!';
             commandList = [];
         }
         
