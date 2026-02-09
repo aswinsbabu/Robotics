@@ -1,4 +1,4 @@
-#Raspberry Pi Side code: Close button on tiles
+#Raspberry Pi Side code: Added Close button on tiles
 #Clear CodeGen Zone
 # Fixed generated code syntax on UI
 
