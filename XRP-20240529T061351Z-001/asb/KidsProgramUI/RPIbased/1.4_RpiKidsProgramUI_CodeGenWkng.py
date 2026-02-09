@@ -1,5 +1,5 @@
 #Raspberry Pi Side code: 
-#corrected generated code; removed if L135 TO L163
+#corrected UI text in generated code; removed if L135 TO L163
 #Adjacent Zones
 
 from flask import Flask, request, jsonify
