@@ -1,4 +1,4 @@
-#File:1.0PredatorModeToAndFro.py
+#File:1.0PredatorModeToAndFro.py #ultrasonic sensor
 #Parent:Sensor_examples.py; https://github.com/Open-STEM/XRP_MicroPython/blob/main/XRPExamples/sensor_examples.py
 #Like a lion standoff
 #Approach if ultrasonic distance is too much and fall back if too close
