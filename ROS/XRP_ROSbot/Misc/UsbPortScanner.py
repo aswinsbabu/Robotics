@@ -1,4 +1,4 @@
-```python
+#USB device scanner on Ubuntu and RPI python
 #!/usr/bin/env python3
 
 import serial.tools.list_ports
@@ -48,4 +48,3 @@ def scan_usb_serial_devices():
 if __name__ == "__main__":
     detected_devices = scan_usb_serial_devices()
     print(f"\nTotal serial ports detected: {len(detected_devices)}")
-```
