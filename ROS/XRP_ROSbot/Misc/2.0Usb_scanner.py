@@ -4,7 +4,7 @@
 
 import serial.tools.list_ports
 
-TARGET_SERIAL_NUMBER = "e66178758b81ab31"
+TARGET_SERIAL_NUMBER = "e66178758b81ab31" #XRP serial number hardcoded.
 
 
 def scan_usb_serial_devices():
