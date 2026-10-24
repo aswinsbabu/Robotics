@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import rclpy
+import rclpy #python lib for ROS
 from rclpy.node import Node #import node class
 
 class mynode(Node): #mynode inherit from Node class
@@ -9,11 +9,11 @@ class mynode(Node): #mynode inherit from Node class
 
 
 def main(args=None):
-    rclpy.init(args=args)
-    node = mynode()
-
+    rclpy.init(args=args) #initialise ros2 communications
+    
+    node = mynode()              #args=args ==> args is from main
 
     rclpy.shutdown
 
-if __name__ == '__main__':
+if __name__ == '__main__': #Also to directly run .py file from terminal
     main()
