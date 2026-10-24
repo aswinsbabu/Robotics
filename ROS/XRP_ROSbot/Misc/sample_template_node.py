@@ -14,7 +14,7 @@ def main(args=None):
     node = mynode()             
     rclpy.spin(node) #stop node from exiting after single execution
     
-    rclpy.shutdown
+    rclpy.shutdown()
 
 if __name__ == '__main__': #Also to directly run .py file from terminal
     main()
